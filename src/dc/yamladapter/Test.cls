@@ -93,4 +93,32 @@ ClassMethod TestDynamicObjectToYaml() As %Status
     Return sc
 }
 
+ClassMethod TestXmlFileToYamlFile() As %Status
+{
+
+    Set sc = $$$OK
+
+    Set xmlFile = "/tmp/samples/sample.xml"
+    Set yamlFile = "/tmp/samples/sample_xml_result.yaml"
+
+    Write ##class(dc.yamladapter.YamlUtil).xmlFileToYamlFile(xmlFile, yamlFile)
+    
+
+    Return sc
+}
+
+ClassMethod TestYamlFileToXmlFile() As %Status
+{
+
+    Set sc = $$$OK
+
+    Set yamlFile = "/tmp/samples/sample.yaml"
+    Set xmlFile = "/tmp/samples/sample_result.xml"
+
+    Write ##class(dc.yamladapter.YamlUtil).yamlFileToXmlFile(yamlFile, "sample", xmlFile)
+    
+
+    Return sc
+}
+
 }
