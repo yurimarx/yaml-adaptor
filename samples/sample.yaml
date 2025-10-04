@@ -1,0 +1,16 @@
+title: "Project Configuration"
+version: 1.2
+enabled: true
+port: 8080
+database_servers:
+  - primary_db
+  - replica_db1
+  - replica_db2
+user_settings:
+  username: "admin_user"
+  roles:
+    - administrator
+    - viewer
+  preferences:
+    theme: "dark"
+    notifications: true

@@ -2,10 +2,12 @@ ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
 
+COPY yaml-adaptor.jar /usr/irissys/bin/
+
 WORKDIR /home/irisowner/dev/
 
 ARG TESTS=0
-ARG MODULE="interoperability-sample"
+ARG MODULE="yaml-adaptor"
 ARG NAMESPACE="USER"
 
 RUN --mount=type=bind,src=.,dst=. \

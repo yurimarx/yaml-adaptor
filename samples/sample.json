@@ -1,0 +1,23 @@
+{
+  "person": {
+    "firstName": "Alex",
+    "lastName": "Johnson",
+    "age": 30,
+    "isStudent": false,
+    "hobbies": [
+      "reading",
+      "hiking",
+      "coding"
+    ],
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "zipCode": "10001"
+    },
+    "contactInfo": null
+  },
+  "metadata": {
+    "creationDate": "2024-01-15",
+    "version": 1.0
+  }
+}

@@ -1,8 +1,5 @@
-version: '3.6'
 services:
   iris:
-    environment:
-      - SAMPLE_TOKEN=${SAMPLE_TOKEN}
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,3 +11,4 @@ services:
       - 53773
     volumes:
       - ./:/home/irisowner/dev/
+      - ./samples:/tmp/samples
