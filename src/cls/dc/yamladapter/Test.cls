@@ -70,10 +70,24 @@ ClassMethod TestYamlFileToDynamicObject() As %Status
 
     Set yamlFile = "/tmp/samples/sample.yaml"
     
-    Set dynamicYaml = ##class(YamlAdaptor).CreateFromFile(yamlFile)
+    Set dynamicYaml = ##class(dc.yamladapter.YamlAdaptor).CreateFromFile(yamlFile)
 
     Write "Title: "_dynamicYaml.title, !
     Write "Version: "_dynamicYaml.version, !
+
+    Return sc
+}
+
+ClassMethod TestXmlFileToDynamicObject() As %Status
+{
+    Set sc = $$$OK
+
+    Set xmlFile = "/tmp/samples/sample.xml"
+    
+    Set dynamicXml = ##class(dc.yamladapter.XmlAdaptor).CreateFromFile(xmlFile)
+
+    Write "Title: "_dynamicXml.title, !
+    Write "Version: "_dynamicXml.version, !
 
     Return sc
 }
@@ -86,9 +100,24 @@ ClassMethod TestDynamicObjectToYaml() As %Status
     Set dynaObj.project = "Project A"
     Set dynaObj.version = "1.0"
     
-    Set yamlContent = ##class(YamlAdaptor).CreateYamlFromDynamicObject(dynaObj)
+    Set yamlContent = ##class(dc.yamladapter.YamlAdaptor).CreateYamlFromDynamicObject(dynaObj)
 
     Write yamlContent
+
+    Return sc
+}
+
+ClassMethod TestDynamicObjectToXml(Output xmlContent As %String) As %Status
+{
+    Set sc = $$$OK
+
+    Set dynaObj = {}
+    Set dynaObj.project = "Project A"
+    Set dynaObj.version = "1.0"
+    
+    Set xmlContent = ##class(dc.yamladapter.XmlAdaptor).CreateXmlFromDynamicObject(dynaObj)
+
+    Write xmlContent
 
     Return sc
 }

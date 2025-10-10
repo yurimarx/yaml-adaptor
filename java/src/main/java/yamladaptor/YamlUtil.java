@@ -6,6 +6,7 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
@@ -31,6 +32,34 @@ public class YamlUtil {
         JsonNode jsonNode = yamlMapper.readTree(yamlString);
         jsonMapper.enable(SerializationFeature.INDENT_OUTPUT);
         return jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+    }
+    
+    public String xmlToJson(String xmlString) throws Exception {
+    	XmlMapper xmlMapper = new XmlMapper();
+    	xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    	JsonNode jsonNode = xmlMapper.readTree(xmlString);
+        return jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+    }
+    
+    public void xmlFileToJsonFile(String xmlFile, String jsonFile) throws Exception {
+    	XmlMapper xmlMapper = new XmlMapper();
+    	xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    	JsonNode jsonNode = xmlMapper.readTree(new File(xmlFile));
+        jsonMapper.writerWithDefaultPrettyPrinter().writeValue(new File(jsonFile), jsonNode);
+    }
+    
+    public String jsonToXml(String jsonString) throws Exception {
+    	JsonMapper jsonMapper = new JsonMapper();
+    	Object jsonNode = jsonMapper.readValue(jsonString, Object.class);
+    	xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    	return xmlMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+    }
+    
+    public void jsonFileToXmlFile(String jsonFile, String xmlFile) throws Exception {
+    	JsonMapper jsonMapper = new JsonMapper();
+    	Object jsonNode = jsonMapper.readValue(new File(jsonFile), Object.class);
+    	xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    	xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File(xmlFile), jsonNode);
     }
     
     public void yamlFileToJsonFile(String yamlFile, String jsonFile) throws Exception {

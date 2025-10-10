@@ -4,20 +4,12 @@
     <Module>
       <Name>yaml-adaptor</Name>
       <Description>InterSystems ObjectScript dynamic objects with YAML.</Description>
-      <Version>1.0.1</Version>
+      <Version>1.1.0</Version>
       <Packaging>module</Packaging>
       <Dependencies>
         <ModuleReference>
           <Name>sslclient</Name>
           <Version>1.0.*</Version>
-        </ModuleReference>
-        <ModuleReference>
-          <Name>objectscript-json-trace-viewer</Name>
-          <Version>1.*</Version>
-        </ModuleReference>
-        <ModuleReference>
-          <Name>production-settings</Name>
-          <Version>*</Version>
         </ModuleReference>
       </Dependencies>
       <SourcesRoot>src</SourcesRoot>

@@ -40,6 +40,9 @@ $ docker-compose up -d
 7. Convert from YAML string to XML string
 8. Generate XML file from YAML file
 9. Generate YAML file from XML File
+10. Generate JSON File from XML File (new)
+11. Generate XML File from JSON File (new)
+12. Convert JSON to XML and XML to JSON (new)
 
 ## How to Run the Sample
 
